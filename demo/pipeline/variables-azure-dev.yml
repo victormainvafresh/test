@@ -8,23 +8,23 @@
 #
 # Any extra variables not found in the original file have been ignored.
 #
-azure_client_id: ""
-azure_client_secret: ""
+azure_client_id: ((terraform_service_principal.client_id))
+azure_client_secret: ((terraform_service_principal.client_secret))
 azure_env: public
-azure_location: westeurope
-azure_subscription_id: ""
-azure_tenant_id: ""
+azure_location: eastus
+azure_subscription_id: ((terraform_service_principal.subscription_id))
+azure_tenant_id: ((terraform_service_principal.tenant_id))
 customer: cycloid
 env: dev
 git_branch: main
-git_private_key: ((test-victor-git.ssh_key))
-git_repository: https://github.com/victormainvafresh/test.git
+git_private_key: ((varun-git.ssh_key))
+git_repository: git@gitlab.com:invafresh/infra/terraform/cycloid.git
 git_terraform_path: ./
 project: demo
-terraform_modules_private_key: ""
-terraform_resource_group_name: cycloid-terraform
-terraform_storage_access_key: ""
-terraform_storage_account_name: ""
-terraform_storage_container_name: cycloid
-terraform_storage_container_path: demo/dev
+terraform_modules_private_key: ((varun-git.ssh_key))
+terraform_resource_group_name: sravan-test1
+terraform_storage_access_key: ((cycloid-tfstate.access_key))
+terraform_storage_account_name: ((cycloid-tfstate.account_name))
+terraform_storage_container_name: terraform
+terraform_storage_container_path: terraform.tfstate
 terraform_version: latest
